@@ -1,0 +1,19 @@
+{
+  "name": "js-csp-exp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.4.3"
+  },
+  "dependencies": {
+    "js-csp": "^0.5.0"
+  }
+}
