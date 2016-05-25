@@ -8,11 +8,16 @@ function* player(name, table, done) {
       return;
     }
     ball.hits += 1;
-    console.log(name + " " + ball.hits);
+    //console.log(`hits: ${ball.hits}`);
+    if (name === 'ping') {
+      console.log(`${name} ->`);
+    } else {
+      console.log(`     <- ${name}`);
+    }
     if (ball.hits == 10) {
       yield csp.put(done, true);
     }
-    yield csp.timeout(100);
+    yield csp.timeout(300);
     yield csp.put(table, ball);
   }
 }
@@ -27,7 +32,7 @@ csp.go(function* () {
   yield csp.put(table, {hits: 0});
 
   yield csp.take(done);
-  console.log('done');
+  console.log('game over');
 
   table.close();
 });
