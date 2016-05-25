@@ -67,6 +67,10 @@ function ajax(url) {
     .then((res) => {
       console.log('  -> received response');
       csp.putAsync(ch, res.data.items.map((r) => r.name));
+    })
+    .catch((err) => {
+      console.error('  -> received error response');
+      csp.putAsync(ch, err);
     });
   return ch;
 }
@@ -76,7 +80,12 @@ csp.go(function* () {
   const result = yield csp.go(function* () {
     return yield csp.take(ajax(github));
   });
-  console.log(`response: ${result}`);
+  if (result instanceof Error) {
+    console.error('Oops');
+    console.error(result);
+  } else {
+    console.log(`response: ${result}`);
+  }
 });
 ```
 
