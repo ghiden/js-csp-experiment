@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "start": "node index",
-    "ajax": "node ajax"
+    "ajax": "node ajax",
+    "queue": "node queue"
   },
   "keywords": [],
   "author": "",
